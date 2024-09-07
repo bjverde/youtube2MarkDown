@@ -2,7 +2,6 @@ async function getThumbnail() {
     const videoTitulo = document.getElementById("videoTitulo").value;
     const videoUrl = document.getElementById("videoUrl").value;
     const videoId = extractVideoId(videoUrl);
-    console.log(videoId);
 
     if (videoId) {
         const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
@@ -10,7 +9,8 @@ async function getThumbnail() {
         const markdown = `[![${videoTitulo}](${thumbnailUrl})](${videoUrl})`;
         console.log(markdown);
 
-        document.getElementById("markdownOutput").textContent = markdown;
+        document.getElementById("markdownOutput").value = markdown
+        document.getElementById("htmlOutput").value = getHtmlOutput(videoTitulo,videoUrl,thumbnailUrl);
     } else {
         alert("Por favor, insira um URL válido do YouTube.");
     }
@@ -22,4 +22,15 @@ function extractVideoId(url) {
     const match = url.match(regExp);
 
     return (match && match[2].length === 11) ? match[2] : null;
+}
+
+function getHtmlOutput(videoTitulo,videoUrl,thumbnailUrl) {
+    let htmlOutput = `
+    <br>
+    <a href="${videoUrl}">
+        <p>${videoTitulo}</p>
+        <img src="${thumbnailUrl}" width="400"/>
+    </a>
+    `;
+    return htmlOutput;
 }
