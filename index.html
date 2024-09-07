@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrair Miniatura do YouTube</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Extrator de Miniaturas do YouTube</h1>
+        <p>Insira o URL do vídeo do YouTube para obter a miniatura e o Markdown.</p>
+        <input type="text" id="videoTitulo" placeholder="Cole o título do vídeo aqui">
+        <input type="text" id="videoUrl"    placeholder="Cole o link do vídeo aqui">
+        <button onclick="getThumbnail()">Obter Miniatura</button>
+        
+        <div id="thumbnailContainer" class="hidden">
+            <h2>Miniatura do vídeo:</h2>
+            <img id="thumbnailImage" src="" alt="Miniatura">
+            <a id="downloadLink" href="" download="thumbnail.jpg">Baixar Miniatura</a>
+
+            <h2>Markdown gerado:</h2>
+            <pre id="markdownOutput"></pre>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
