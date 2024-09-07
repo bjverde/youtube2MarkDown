@@ -27,8 +27,8 @@ function extractVideoId(url) {
 function getHtmlOutput(videoTitulo,videoUrl,thumbnailUrl) {
     let htmlOutput = `<br>\n`;
     htmlOutput = htmlOutput+`<a href="${videoUrl}">\n`;
-    htmlOutput = htmlOutput+`    <p>${videoTitulo}</p>\n`;
-    htmlOutput = htmlOutput+`    <img src="${thumbnailUrl}" width="400"/>\n`;
+    htmlOutput = htmlOutput+`    <br>${videoTitulo}\n`;
+    htmlOutput = htmlOutput+`    <br><img src="${thumbnailUrl}" width="400"/>\n`;
     htmlOutput = htmlOutput+`</a>\n`;
     return htmlOutput;
 }
