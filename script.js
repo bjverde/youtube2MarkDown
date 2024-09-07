@@ -23,13 +23,3 @@ function extractVideoId(url) {
 
     return (match && match[2].length === 11) ? match[2] : null;
 }
-
-// Função para buscar o título do vídeo usando fetch
-async function getVideoTitle(videoId) {
-    const response = await fetch(`https://www.youtube.com/watch?v=${videoId}`);
-    const text = await response.text();
-    
-    // Extrair o título do HTML da página
-    const titleMatch = text.match(/<meta name="title" content="(.+?)">/);
-    return titleMatch ? titleMatch[1] : null;
-}
